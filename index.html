@@ -13,7 +13,7 @@
         color: #111111;
         line-height: 24px;
         font-size: 16px;
-        padding: 0px 16px 0px 16px;
+        padding: 0 16px;
         margin: 64px auto;
         max-width: 480px;
       }
@@ -21,10 +21,20 @@
         font-weight: 500; /* Medium */
         font-size: 20px;
         line-height: 32px;
+        margin: 0 0 16px 0; /* rhythm */
       }
+      /* Base paragraph rhythm */
+      p {
+        margin: 0 0 16px 0;
+      }
+      /* Subtitle gets extra space below */
       .subtitle {
         font-weight: 500; /* Medium */
-        margin-bottom: 24px;
+        margin: 0 0 24px 0;
+      }
+      /* Remove extra bottom margin on the paragraph just before copyright */
+      .subtitle + p + p + p {
+        margin-bottom: 0;
       }
       a {
         color: #E81258;
@@ -37,7 +47,7 @@
         font-size: 12px;
         line-height: 20px;
         font-weight: 400; /* Regular */
-        margin-top: 32px;
+        margin-top: 32px; /* clear, consistent footer spacing */
       }
     </style>
   </head>
@@ -52,6 +62,13 @@
       <a href="https://chrome.google.com/webstore/detail/hashpack/gjagmgiddbbciopjhllkdnddhcglnemk" target="_blank" rel="noopener noreferrer">Chrome</a>.
     </p>
     <p>Connect with me on <a href="http://linkedin.com/in/jacobdrozario" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="http://twitter.com/jacobdrozario" target="_blank" rel="noopener noreferrer">X</a>.</p>
-    <p class="copyright">Copyright &#169; 2025 Jacob D&#39;Rozario</p>
+    <p class="copyright">Copyright &#169; <span id="year">2025</span> Jacob D&apos;Rozario</p>
+
+    <script>
+      (function () {
+        var el = document.getElementById('year');
+        if (el) el.textContent = new Date().getFullYear();
+      })();
+    </script>
   </body>
 </html>
